@@ -4,7 +4,9 @@ const tipo = os.type();
 const plataforma = os.platform();
 const memoria_livre = os.totalmem();
 const converterBytetoMB = require('./util/conversor').converterBytetoMB(memoria_livre);
+const chalk = require('chalk');
 
+console.log(chalk.blue.bold(`=== Informações do Sistema ===\n`));
 
 console.log(`Plataforma: ${plataforma}`);
 console.log(`Tipo: ${tipo}`);
