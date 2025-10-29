@@ -1,15 +1,21 @@
-const os = require('os');
+import os from 'os';
 
+const log = console.log;
 const tipo = os.type();
 const plataforma = os.platform();
 const memoria_livre = os.totalmem();
-const converterBytetoMB = require('./util/conversor').converterBytetoMB(memoria_livre);
-const chalk = require('chalk');
+import { converterBytesParaMB } from './util/conversor.js';
+import chalk from 'chalk';
 
 console.log(chalk.blue.bold(`=== Informações do Sistema ===\n`));
 
 console.log(`Plataforma: ${plataforma}`);
-console.log(`Tipo: ${tipo}`);
-console.log(`Tipo: ${os.release()}`);
-console.log(`Tipo: ${memoria_livre} bytes`);
-console.log(`Tipo: ${converterBytetoMB} bytes`);
+console.log(`Windows: ${tipo}`);
+console.log(`Versão: ${os.release()}`);
+console.log(`Memória: ${memoria_livre} bytes`);
+console.log(`Memória: ${converterBytesParaMB(memoria_livre)} MB`);
+log(`
+    CPU:${chalk.red('90%')}
+    RAM:${chalk.green('40%')}
+    DISK:${chalk.yellow('70%')}`
+);
